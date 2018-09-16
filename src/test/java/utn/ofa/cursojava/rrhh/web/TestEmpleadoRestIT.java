@@ -32,9 +32,9 @@ import org.junit.Ignore;
  *
  * @author martin
  */
-public class TestClienteRestIT {
+public class TestEmpleadoRestIT {
 
-    public TestClienteRestIT() {
+    public TestEmpleadoRestIT() {
     }
 
     @BeforeClass
@@ -53,15 +53,15 @@ public class TestClienteRestIT {
     public void tearDown() {
     }
 
-    @Ignore
-    public void testGetCliente() throws IOException {
-        String MY_URL = "http://localhost:8080/rrhh-web/api/cliente";
+    @Test
+    public void testGetEmpleado() throws IOException {
+        String MY_URL = "http://localhost:8080/rrhh-web/api/empleado";
         HttpGet httpget = new HttpGet(MY_URL);
-        CloseableHttpClient cliente = HttpClients.createDefault();
-        CloseableHttpResponse response1 = cliente.execute(httpget);
+        CloseableHttpClient empleado = HttpClients.createDefault();
+        CloseableHttpResponse response1 = empleado.execute(httpget);
         HttpEntity entity1 = response1.getEntity();
         String resultado = entidadToString(entity1.getContent());
-        assertEquals("GET", resultado.toUpperCase());
+        assertEquals("LISTO", resultado.toUpperCase());
         EntityUtils.consume(entity1);
         response1.close();
     }
